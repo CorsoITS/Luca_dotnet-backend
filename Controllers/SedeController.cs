@@ -5,28 +5,28 @@ using projectwork.Services;
 namespace projectwork.Controllers;
 
 [ApiController]
-[Route("persona")]
-public class PersonaController : ControllerBase
+[Route("sede")]
+public class SedeController : ControllerBase
 {
 
-    private PersonService personService = new PersonService();
+    private SedeService sedeService = new SedeService();
 
     [HttpGet]    
-    public IEnumerable<Person> GetPeople()
+    public IEnumerable<Sede> GetSedi()
     {
-        return personService.GetPeople();
+        return sedeService.GetSedi();
     }   
 
     [HttpGet("{id}")]
-    public Person GetPerson(int id)
+    public Sede GetSede(int id)
     {
-        return personService.GetPerson(id);
+        return sedeService.GetSede(id);
     }
 
     [HttpPost]
-    public IActionResult Create(Person person)
+    public IActionResult Create(Sede sede)
     {
-        var created = personService.Create(person);
+        var created = sedeService.Create(sede);
         if (created)
         {
             return Ok();
@@ -39,9 +39,9 @@ public class PersonaController : ControllerBase
     }
 
     [HttpPut]
-    public IActionResult Update(Person person)
+    public IActionResult Update(Sede sede)
     {
-        var updated = personService.Update(person);
+        var updated = sedeService.Update(sede);
         if (updated)
         {
             return Ok();
@@ -56,7 +56,7 @@ public class PersonaController : ControllerBase
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
-        var deleted = personService.Delete(id);
+        var deleted = sedeService.Delete(id);
         if (deleted)
         {
             return Ok();
