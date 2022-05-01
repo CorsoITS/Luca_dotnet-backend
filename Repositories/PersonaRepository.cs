@@ -130,7 +130,6 @@ public class PersonRepository
             Value = person.codice_fiscale
         };
         command.Parameters.Add(parameterCF);
-        Console.WriteLine(command);
         var result = Convert.ToBoolean(command.ExecuteNonQuery());
         appDb.Connection.Close();
         return result;
